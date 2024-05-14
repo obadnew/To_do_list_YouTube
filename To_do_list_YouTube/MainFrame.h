@@ -12,7 +12,16 @@ private:
 	wxButton* clearbutton;
 	wxCheckListBox* CheckBox;
 
+	//declaring methods
 	void createcontrols();
+	void bindeventhandler();
 
+
+	void AddWhenClicked(wxCommandEvent& evt);
+	void enter_action(wxCommandEvent& evt);
+	void onlistkeydown(wxKeyEvent& evt);
+
+	void AddTaskFromInput();
+	void delete_selected_tasks();
 };
 
