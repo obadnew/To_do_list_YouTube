@@ -8,7 +8,7 @@
 
 void SaveTaskToFile(const std::vector<Task>& tasks, const std::string& filename)
 {
-	std::fstream ostream(filename);
+	std::fstream ostream(filename, std::ios::out);
 	ostream << tasks.size();
 
 	for (const Task& task : tasks) {
@@ -31,13 +31,13 @@ std::vector<Task> LoadTaskFromFile(const std::string& filename)
 	int n;
 	istream >> n;
 	for (int i = 0; i < n; i++) {
-		std::string descrption;
+		std::string description;
 		bool done;
 
-		istream >> descrption >> done;
-		std::replace(descrption.begin(), descrption.end(), '_', ' ');
+		istream >> description >> done;
+		std::replace(description.begin(), description.end(), '_', ' ');
 		
-		tasks.push_back(Task{ descrption, done });
+		tasks.push_back(Task{ description, done });
 	}
 
 	return tasks;
